@@ -1,0 +1,143 @@
+﻿@model IEnumerable<GroupAssigment.ViewModels.Paasengers>
+
+@{
+    ViewBag.Title = "ListPassenger";
+}
+<link rel="stylesheet" href="~/content/ss/animate.css">
+<link rel="stylesheet" href="~/content/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/content/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/content/css/templatemo_misc.css">
+<link rel="stylesheet" href="~/content/css/templatemo_style.css">
+<link rel="stylesheet" href="~/content/css/styles.css">
+
+<!-- JavaScripts -->
+<script src="~/content/js/jquery-1.11.1.min.js"></script>
+<script src="~/content/js/bootstrap-dropdown.js"></script>
+<script src="~/content/js/bootstrap-collapse.js"></script>
+<script src="~/content/js/bootstrap-tab.js"></script>
+<script src="~/content/js/jquery.singlePageNav.js"></script>
+<script src="~/content/js/jquery.flexslider.js"></script>
+<script src="~/content/js/custom.js"></script>
+<script src="~/content/js/jquery.lightbox.js"></script>
+<script src="~/content/js/templatemo_custom.js"></script>
+<script src="~/content/js/responsiveCarousel.min.js"></script>
+<link href="~/Content/themes/base/all.css" rel="stylesheet" />
+<h2>ListPassenger</h2>
+@if (TempData["succ"] != null)
+{
+    <h3 class="alert alert-success">@TempData["succ"] </h3>
+}
+@if (TempData["sud"] != null)
+{
+    <h3 class="alert alert-success">@TempData["sud"]</h3>
+}
+<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <input type="text" class="form-control" name="name" placeholder="Name" />
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" name="from" placeholder="from" />
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" class="form-control datepicker" name="Datefrom" value="@DateTime.Now.ToShortDateString()" />
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" class="form-control datepicker" name="Dateto" value="@DateTime.Now.ToShortDateString()" />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-search"></span>Search</button>
+                <a href="~/RetailSales/ExportExcelExp" class="btn btn-sm btn-success">Excel</a>
+                <a onclick="javascript:window.print();" class="btn btn-xs btn-success pull-right"><i class="glyphicon glyphicon-print"></i></a>
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Addres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.To)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.From)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Addres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.To)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.From)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdatePassenger", new { id=item.Id },, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+@section scripts
+ {
+
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+
+
+    <script type="text/javascript">
+
+            $(document).ready(function () {
+                $(".datepicker").datepicker();
+            });
+    </script>
+}

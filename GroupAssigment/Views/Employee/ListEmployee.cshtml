@@ -1,0 +1,134 @@
+﻿@model IEnumerable<GroupAssigment.ViewModels.Employee>
+
+@{
+    ViewBag.Title = "ListEmployee";
+}
+<link rel="stylesheet" href="~/content/ss/animate.css">
+<link rel="stylesheet" href="~/content/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/content/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/content/css/templatemo_misc.css">
+<link rel="stylesheet" href="~/content/css/templatemo_style.css">
+<link rel="stylesheet" href="~/content/css/styles.css">
+
+<!-- JavaScripts -->
+<script src="~/content/js/jquery-1.11.1.min.js"></script>
+<script src="~/content/js/bootstrap-dropdown.js"></script>
+<script src="~/content/js/bootstrap-collapse.js"></script>
+<script src="~/content/js/bootstrap-tab.js"></script>
+<script src="~/content/js/jquery.singlePageNav.js"></script>
+<script src="~/content/js/jquery.flexslider.js"></script>
+<script src="~/content/js/custom.js"></script>
+<script src="~/content/js/jquery.lightbox.js"></script>
+<script src="~/content/js/templatemo_custom.js"></script>
+<script src="~/content/js/responsiveCarousel.min.js"></script>
+@Styles.Render("~/Content/css")
+@if (TempData["Succes"] != null)
+{
+    <h3 class="alert alert-success">@TempData["Succes"]</h3>
+}
+@if (TempData["SuccesUpdate"] != null)
+{
+    <h3 class="alert alert-success">@TempData["SuccesUpdate"]</h3>
+}
+@if (TempData["SucesDeleted"] != null)
+{
+    <h3 class="alert alert-success">@TempData["SucesDeleted"]</h3>
+}
+<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <input type="text" class="form-control" name="name" placeholder="BusNumber" />
+            </div>
+            <div class="col-md-2">
+                <input type="text" class="form-control" name="phone" placeholder="Bus Driver" />
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" class="form-control datepicker" name="Datefrom" value="@DateTime.Now.ToShortDateString()" />
+            </div>
+
+            <div class="col-md-2">
+                <input type="text" class="form-control datepicker" name="Dateto" value="@DateTime.Now.ToShortDateString()" />
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-search"></span>Search</button>
+                <a href="~/RetailSales/ExportExcelExp" class="btn btn-sm btn-success">Excel</a>
+                <a onclick="javascript:window.print();" class="btn btn-xs btn-success pull-right"><i class="glyphicon glyphicon-print"></i></a>
+            </div>
+        </div>
+    </div>
+</form>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Addres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.References)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Firstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Addres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.References)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "UpdateEmployee", new { id=item.Id },new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("-","update") |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id },new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

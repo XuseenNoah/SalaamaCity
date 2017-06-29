@@ -1,0 +1,73 @@
+﻿@model GroupAssigment.ViewModels.BusExpenses
+
+@{
+    ViewBag.Title = "Update";
+}
+<link rel="stylesheet" href="~/content/ss/animate.css">
+<link rel="stylesheet" href="~/content/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/content/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/content/css/templatemo_misc.css">
+<link rel="stylesheet" href="~/content/css/templatemo_style.css">
+<link rel="stylesheet" href="~/content/css/styles.css">
+
+<!-- JavaScripts -->
+<script src="~/content/js/jquery-1.11.1.min.js"></script>
+<script src="~/content/js/bootstrap-dropdown.js"></script>
+<script src="~/content/js/bootstrap-collapse.js"></script>
+<script src="~/content/js/bootstrap-tab.js"></script>
+<script src="~/content/js/jquery.singlePageNav.js"></script>
+<script src="~/content/js/jquery.flexslider.js"></script>
+<script src="~/content/js/custom.js"></script>
+<script src="~/content/js/jquery.lightbox.js"></script>
+<script src="~/content/js/templatemo_custom.js"></script>
+<script src="~/content/js/responsiveCarousel.min.js"></script>
+@Styles.Render("~/Content/css")
+<h2>Update</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>BusExpenses</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BusNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BusNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BusNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BusDriverName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BusDriverName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BusDriverName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AmountExpenses, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AmountExpenses, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AmountExpenses, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Udate" class="btn btn-primary btn-lg" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

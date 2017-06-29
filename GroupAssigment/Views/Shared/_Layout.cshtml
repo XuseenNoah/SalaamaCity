@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Salaama Bus </title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="~/content/ss/animate.css">
+    <link rel="stylesheet" href="~/content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/content/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/content/css/templatemo_misc.css">
+    <link rel="stylesheet" href="~/content/css/templatemo_style.css">
+    <link rel="stylesheet" href="~/content/css/styles.css">
+
+    <!-- JavaScripts -->
+    <script src="~/content/js/jquery-1.11.1.min.js"></script>
+    <script src="~/content/js/bootstrap-dropdown.js"></script>
+    <script src="~/content/js/bootstrap-collapse.js"></script>
+    <script src="~/content/js/bootstrap-tab.js"></script>
+    <script src="~/content/js/jquery.singlePageNav.js"></script>
+    <script src="~/content/js/jquery.flexslider.js"></script>
+    <script src="~/content/js/custom.js"></script>
+    <script src="~/content/js/jquery.lightbox.js"></script>
+    <script src="~/content/js/templatemo_custom.js"></script>
+    <script src="~/content/js/responsiveCarousel.min.js"></script>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .content{
+            margin-top:-100px;
+        }
+        .fot{
+            margin-bottom:-50px;
+        }
+        .body-content1{
+            margin-top:35px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Salaama City Bus", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("Home", "Index", "Home")
+
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Bus Expenses<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("CreateBusExpenses","BusExpenses")">Create New Bus</a></li>
+                            <li><a href="@Url.Action("ListBusExpenses","BusExpenses")">List Bus Expenses</a></li>
+                            <li><a href="">Update Bus Expenses</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Employee<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="@Url.Action("CreateEmployee","Employee")">Create New Employee</a></li>
+                            <li><a href="@Url.Action("ListEmployee","Employee")">List Employee</a></li>
+                            <li><a href="@Url.Action("CreateSallery","Employee")">Create Sallery</a></li>
+                            <li><a href="@Url.Action("ListSallery","Employee")">List Sallery</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Goods From<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("CreateGoods","GoodsFrom")">Create Goods</a></li>
+                            <li><a href="@Url.Action("ListGoods","GoodsFrom")">List Goods</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Passenger<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("CreatePassenger","Passenger")">Create Passenger</a></li>
+                            <li><a href="@Url.Action("ListPassenger", "Passenger")">List Passenger</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("ReportGoods","GoodsFrom")">Goods Report</a></li>
+                            <li><a href="@Url.Action("ReportGoodsFrom","BusExpenses")">Bus Expenses Report</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">User Accounts<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Registration","Account")">Create New User</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+        <div class="body-content1">
+            @RenderBody()
+        </div>
+
+    <!-- service end -->
+    <div class="clear"></div>
+    <!-- work start -->
+
+    <!--work end-->
+    <div class="clear"></div>
+    <!-- team start -->
+
+    <!-- team end -->
+    <div class="clear"></div>
+    <!-- contact start -->
+
+        <!-- contact end -->
+        <!-- footer start -->
+
+    <!-- contact end -->
+    <!-- footer start -->
+        <div class="fot">
+            <div class="templatemo_footerwrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">Copyright &copy; @DateTime.Now.Year <a href="#">Online Banking</a> | Design: <a href="#">Trust</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- footer end -->
+    @*<script>
+
+// Cache selectors
+var lastId,
+    topMenu = $("#top-menu"),
+    topMenuHeight = topMenu.outerHeight() + 15,
+    // All list items
+    menuItems = topMenu.find("a"),
+    // Anchors corresponding to menu items
+    scrollItems = menuItems.map(function() {
+        var item = $($(this).attr("href"));
+        if (item.length) {
+            return item;
+        }
+    });
+// Bind click handler to menu items
+// so we can get a fancy scroll animation
+menuItems.click(function(e) {
+    var href = $(this).attr("href"),
+        offsetTop = href === "#" ? 0 : $(href).offset().top - topMenuHeight + 1;
+    $('html, body').stop().animate({
+        scrollTop: offsetTop
+    }, 300);
+    e.preventDefault();
+});
+// Bind to scroll
+$(window).scroll(function() {
+    // Get container scroll position
+    var fromTop = $(this).scrollTop() + topMenuHeight;
+    // Get id of current scroll item
+    var cur = scrollItems.map(function() {
+        if ($(this).offset().top < fromTop)
+            return this;
+    });
+    // Get the id of the current element
+    cur = cur[cur.length - 1];
+    var id = cur && cur.length ? cur[0].id : "";
+    if (lastId !== id) {
+        lastId = id;
+        // Set/remove active class
+        menuItems
+            .parent().removeClass("active")
+            .end().filter("[href=#" + id + "]").parent().addClass("active");
+    }
+});
+    </script>*@
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<GroupAssigment.ViewModels.Paasengers>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PrintReceipt</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-12">
+
+
+
+
+
+                <div class=" pull-right">
+
+                    <a href="@Url.Action("index","Home")" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-eye-close"></span></a>
+                    <a onclick="javascript:window.print();" class="btn btn-xs btn-success pull-right"><i class="glyphicon glyphicon-print"></i></a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br />
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Firstname)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.To)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.From)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BusNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Firstname)
+                    </td>
+
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.To)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.From)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BusNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

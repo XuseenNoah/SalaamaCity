@@ -1,0 +1,111 @@
+﻿@model IEnumerable<GroupAssigment.ViewModels.GoodsFrom>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ReportGoods</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <br />
+    <form method="post">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="col-md-2">
+                    <input type="text" class="form-control datepicker" name="Datefrom" value="@DateTime.Now.ToShortDateString()" />
+                </div>
+
+                <div class="col-md-2">
+                    <input type="text" class="form-control datepicker" name="Dateto" value="@DateTime.Now.ToShortDateString()" />
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-search"></span>Search</button>
+                    <a href="@Url.Action("Index","Home")" class="btn btn-sm btn-success">Exit</a>
+                    <a onclick="javascript:window.print();" class="btn btn-xs btn-success pull-right"><i class="glyphicon glyphicon-print"></i></a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameSender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phoneof)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TypesofGood)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameFrom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusNumber)
+            </th>
+
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameSender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phoneof)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypesofGood)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusNumber)
+            </td>
+
+        </tr>
+    }
+
+    </table>
+</body>
+</html>

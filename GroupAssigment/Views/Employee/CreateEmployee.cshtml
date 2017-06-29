@@ -1,0 +1,121 @@
+﻿@model GroupAssigment.ViewModels.Employee
+
+@{
+    ViewBag.Title = "CreateEmployee";
+}
+<link rel="stylesheet" href="~/content/ss/animate.css">
+<link rel="stylesheet" href="~/content/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/content/css/font-awesome.min.css">
+<link rel="stylesheet" href="~/content/css/templatemo_misc.css">
+<link rel="stylesheet" href="~/content/css/templatemo_style.css">
+<link rel="stylesheet" href="~/content/css/styles.css">
+
+<!-- JavaScripts -->
+<script src="~/content/js/jquery-1.11.1.min.js"></script>
+<script src="~/content/js/bootstrap-dropdown.js"></script>
+<script src="~/content/js/bootstrap-collapse.js"></script>
+<script src="~/content/js/bootstrap-tab.js"></script>
+<script src="~/content/js/jquery.singlePageNav.js"></script>
+<script src="~/content/js/jquery.flexslider.js"></script>
+<script src="~/content/js/custom.js"></script>
+<script src="~/content/js/jquery.lightbox.js"></script>
+<script src="~/content/js/templatemo_custom.js"></script>
+<script src="~/content/js/responsiveCarousel.min.js"></script>
+@Styles.Render("~/Content/css")
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Addres, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Addres, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Addres, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JobTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               <select name="JobTitle" class="form-control">
+                   <option value="Maneger">Maneger</option>
+                   <option value="Driver Bus">Driver Bus</option>
+                   <option value="Marketting">Marketting</option>
+                   <option value="Staf">Staf</option>
+                   <option value="Finance">Finance</option>
+                   <option value="Accountant">Accountant</option>
+               </select>
+                @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select name="Gender" class="form-control">
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.References, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.References, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.References, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary btn-lg" />
+                <a href="" class="btn btn-danger btn-lg">Cancel</a>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
